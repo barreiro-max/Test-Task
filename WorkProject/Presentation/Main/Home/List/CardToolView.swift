@@ -25,7 +25,7 @@ struct CardToolView: View {
                     title
                     subtitle
                 }
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(12)
         }
