@@ -27,7 +27,6 @@ struct BottomTabBar: View {
             }
         }
         .frame(width: 343, height: 50)
-        .padding(.vertical, 6)
         .shadow(
             color: .black.opacity(0.04),
             radius: 8,

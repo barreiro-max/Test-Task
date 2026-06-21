@@ -102,9 +102,10 @@ struct CardToolView: View {
     ZStack {
         Color.gray
             .ignoresSafeArea()
-        CardToolView(cardTool: testCard) {
-            print("Tapped navigation callback")
+        VStack {
+            CardToolView(cardTool: testCard) {
+                print("Tapped navigation callback")
+            }
         }
-        .fixedSize()
     }
 }

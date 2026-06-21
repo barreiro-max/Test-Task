@@ -32,14 +32,34 @@ struct TabView: View {
         }
     }
 
+    @ViewBuilder
     private var tabOverlay: some View {
-        VStack {
-            if !router.isTabBarHidden {
-                BottomTabBar(tab: router.currentTab) { tab in
-                    router.currentTab = tab
-                }
-                .transition(.opacity)
+        if !router.isTabBarHidden {
+            ZStack {
+                bottomFading
+                tabBar
             }
+            .transition(.opacity)
+        }
+    }
+
+    private var bottomFading: some View {
+        LinearGradient(
+            colors: [
+                .clear,
+                Color(hex: "#F3F2F1").opacity(0.85)
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .ignoresSafeArea(.container, edges: .bottom)
+        .frame(maxWidth: .infinity, maxHeight: 96)
+    }
+
+
+    private var tabBar: some View {
+        BottomTabBar(tab: router.currentTab) { tab in
+            router.currentTab = tab
         }
     }
 }

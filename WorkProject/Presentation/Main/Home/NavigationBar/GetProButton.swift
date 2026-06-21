@@ -55,5 +55,8 @@ private extension LinearGradient {
 }
 
 #Preview {
-    GetProButton()
+    ZStack{
+        Color.gray.ignoresSafeArea()
+        GetProButton()
+    }
 }

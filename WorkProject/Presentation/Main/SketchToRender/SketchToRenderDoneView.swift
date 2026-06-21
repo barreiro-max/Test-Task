@@ -12,7 +12,7 @@ struct SketchToRenderDoneView: View {
         ZStack {
             backgroundColor
 
-            VStack(spacing: 48) {
+            VStack(spacing: 64) {
                 containerCardTools
                 containerBottomButtons
             }
@@ -27,8 +27,8 @@ struct SketchToRenderDoneView: View {
     private var containerCardTools: some View {
         SketchToRenderImage()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.top, 48)
-            .padding(.bottom, 16)
+            .padding(.top, 16)
+            .padding(.bottom, 48)
             .padding(.horizontal, 16)
     }
 

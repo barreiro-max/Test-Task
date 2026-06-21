@@ -16,12 +16,12 @@ struct SketchToRenderImage: View {
             animatedSlider
         }
         .frame(width: 343, height: 436)
-        .clipShape(
-            RoundedRectangle(cornerRadius: 24)
-        )
         .overlay(alignment: .top) {
             overlayLabels
         }
+        .clipShape(
+            RoundedRectangle(cornerRadius: 24)
+        )
     }
 
     private var imageGeometryContainer: some View {
@@ -83,7 +83,25 @@ struct SketchToRenderImage: View {
             imageLabel("After")
         }
         .frame(height: 55)
+        .background {
+            topFading
+        }
     }
+
+    private var topFading: some View {
+        LinearGradient(
+            colors: [
+                .black.opacity(0.3),
+                .black.opacity(0.2),
+                .black.opacity(0.1),
+                .clear,
+                .clear
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
+
 
     private func imageLabel(_ text: String) -> some View {
 
@@ -103,7 +121,6 @@ struct SketchToRenderImage: View {
 
     }
 }
-
 #Preview {
     SketchToRenderImage()
 }

@@ -47,16 +47,13 @@ struct HomePageView: View {
     }
 
     private var containerCardsTools: some View {
-        List {
-            ForEach(viewModel.cardsTools) { cardTool in
-                cardView(cardTool)
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
+        ScrollView(.vertical) {
+            LazyVStack(spacing: 12) {
+                ForEach(viewModel.cardsTools) { cardTool in
+                    cardView(cardTool)
+                }
             }
         }
-        .padding(.vertical, 6)
-        .padding(.horizontal, 8)
-        .scrollContentBackground(.hidden)
     }
 
     private func cardView(_ cardTool: CardTool) -> some View {
